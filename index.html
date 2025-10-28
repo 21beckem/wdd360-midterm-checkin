@@ -25,14 +25,17 @@
     overflow-y: scroll;
 }
 
-.resultsContainer > div > p {
+.resultsContainer > div:not(.result) > p {
     cursor: pointer;
     color: red;
     text-decoration: underline;
 }
-.resultsContainer > div > p:not(.selected) {
+.resultsContainer > div:not(.result) > p:not(.selected) {
     color: blue;
     opacity: 0.5;
+}
+.resultsContainer .results .photos img {
+    margin: 5px;
 }
     </style>
 </head>
@@ -56,7 +59,14 @@
     <div class="resultsContainer">
         <div class="places"></div>
         <div class="identifications"></div>
-        <div style="flex: 2;" class="result"></div>
+        <div style="flex: 2;" class="result">
+            <img class="default-photo" src="" style="width: 100%;">
+            <span class="attribution"></span>
+            <div class="photos"></div>
+            <h2><a href="" target="_blank"></a></h2>
+            <h4></h4>
+            <p></p>
+        </div>
     </div>
 
     <script src="app.js"></script>
