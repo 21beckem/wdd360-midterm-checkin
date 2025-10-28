@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iNaturalist Search</title>
+    <style>
+.searcherContainer, .resultsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.searcherContainer > form, .resultsContainer > div {
+    flex: 1;
+    padding: 10px;
+}
+
+
+.resultsContainer {
+    height: max(calc(100vh - 100px), 200px);
+}
+.resultsContainer > div {
+    border-radius: 10px;
+    border: 1px solid black;
+    overflow-y: scroll;
+}
+
+.resultsContainer > div > p {
+    cursor: pointer;
+    color: red;
+    text-decoration: underline;
+}
+.resultsContainer > div > p:not(.selected) {
+    color: blue;
+    opacity: 0.5;
+}
+    </style>
+</head>
+<body>
+    <div class="searcherContainer">
+        <form>
+            <label>Place Search</label><br>
+            <input type="text">
+            <button id="placeSearchBtn" type="submit">Search</button>
+        </form>
+        <form style="display: flex; align-items: center;">
+            <label>Identification Select</label><br>
+        </form>
+        <form style="flex: 2; display: flex; align-items: center;">
+            <label>Result</label><br>
+        </form>
+    </div>
+
+    <br>
+        
+    <div class="resultsContainer">
+        <div class="places"></div>
+        <div class="identifications"></div>
+        <div style="flex: 2;" class="result"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
